@@ -1,0 +1,419 @@
+标识符不能使用下列关键字
+javascript保留字：
+abstract
+boolean break byte
+case catch char class const continue
+debugger default delete do double
+else enum export extends 
+false final finally float for function 
+goto 
+if implements import in instanceof int interface
+long 
+native new null
+package private protected public
+return 
+short static super switch synchronized
+this throw throws transient true try typeof
+var volatile void 
+while with
+数字 
+NAN
+Infinity 表示所有大于1.79769313486231570e+308
+JavaScript 有一个Math对象 Math.floor(number)
+字符串字面值 可以被包围在单引号或双引号中
+Unicode是一个16为的字符值
+"A" === "\u0041"
+"seven".length = 5
+'c'+'a'+'t'=== 'cat'
+'cat'.toUpperCase() === 'CAT'
+以下值被当做false
+false 
+null
+undefined
+空字符串''
+0
+数字NAN
+
+for(myvar in obj) {
+  if(obj.hasOwnProperty(myvar) {
+ ...
+})
+}
+
+do {...} while{}
+
+try { } catch{ } 
+
+function literal(){
+
+}
+
+var empty_obkect = { };
+var stooge = {
+ "first-name":"Jerome",
+ "last-name":"Howard"
+};
+
+stooge["first-name"] = "Jerome"
+stooge.first-name = "Jerome"
+对象通过引用来传递，他们永远不会被拷贝：
+var a = {}, b = {},c = {};
+a = b = c = {};
+原型:每个对象都连接到一个原型对象，并且他可以从中继承属性
+所有通过对象字面量创建的
+对象都连接到Obect.propertype
+给Object 增加一个beget方法
+if(tepeof Object.beget !== 'function') {
+   Object.beget = function(o) {
+   var F = function () {};
+  F.prototype = o;
+  return new F();
+ };
+}
+
+反射typeof
+枚举 for in
+删除 delete
+函数：
+var add = function (a,b) {
+ return a+b;
+}
+
+函数调用模式
+var sum = add(3,4);
+构造器调用模式
+Apply调用模式
+return 
+throw exception
+最好的做法是在函数的顶部声明函数中可能用到的所有变量
+闭包
+回调
+模块
+级联
+套用
+记忆
+------------
+数组字面量
+var empty = [];
+var numbers = [
+'zero','one','two','three','four','five'
+]
+numbers[1] = 'two';
+var number_obect = {
+'0':'zero','1':'one',
+'2':two
+}
+------------
+JavaScript
+数组的length是没有上界的，
+var myArray = [];
+myArray.length = 0
+myArray[1000000] = true;
+myArray.length = 10000001;
+numbers ['zero','one','two']
+numbers.length = 3;
+numbers[numbers.length] = 'shi';
+numbers = ['zero','one','two','shi'];
+number.push('go');
+numbers = ['zero','one','two','shi','go'];
+delete numbers[2]
+numers = ['zero','one',undefined,'shi','go'];
+numbers.splice(2,1)
+第一个参数是数组中的序号，第二个参数是要删除的元素的个数。
+正则表达式：
+regexp.exec/regexp.test/
+string.match/string.replace/string.search/string.splitvar pasr
+var parse_url = /^(?:（[A-Za-z]+:）?(\/{0,3{0-9./\-a}}))...$/
+
+test = function(num) {
+document.writeln(parse_number.test(num));
+};
+test('1') = true;
+test('number') = 'false';
+test{'98.6'}
+var my_regexp = /"{?:\\.|[^\\\\]}*"/g
+g 全局的
+可匹配多次
+I 大小不敏感
+M 多行
+RegExp 对象的属性
+gloable
+ignoreCase
+lastIndex
+multiline
+source
+"into".match(/in|int/) =in 而不是int
+var a = ['a','b','c'];
+var b = ['x','y','z'];
+var c = a.concat(b,true);
+c = ['a','b','c','x','y','z',true];	
+a.push('d');
+array.join(sperator) 默认是','
+var c = a.join('');
+c='abcd'
+array.pop()
+var a = ['a','b','c'];
+var c = a.pop()--->a = ['a','b']
+c = 'c'
+Array.method('pop',function() {
+ return this.spilce(this.length-1,1)[0];
+})
+array.push()
+var a = ['a','b','c'];
+var b = ['x','y','z'];
+var c = a.push(b,true);
+c = ['a','b','c','x','y','z',true];
+---c = 5;
+array.method('push',function() {
+this.splice.apply (
+ this,
+[this.length,0].concat(Array.prototype.splice.apply(arfuments));
+return this.length
+)
+})
+
+array.reverse()反转
+array.shift() 移除数组array中的第一个元素并返回该元素。如果这个数组array是空的，
+它会返回undefined。shift通常比pop慢的多
+shift可以这样实现
+Array.method('shift',function () {
+return this.splice(0,1)[0];
+});
+array.slice(start,end);
+对array的一段浅复制
+var a = ['a','b','c'];
+var b = s.slice(0,1); b = ['a']
+var c = s.slice(1); c = ['b','c'];
+var d = a.slice(1,2); d = ['b'];
+array.sort(comparefn)
+var n = [4,7,16,23,43];
+n.sort();
+
+-----------
+string.localCompare.
+array.splice(start,deleteCount,item...) 
+var a = ['a','b','c'];
+var r = a.splice(1,1,'ache','bug');;;;;;移除一个或多个元素，并用新的item替换他们
+a = ['a''ache','bug','c']
+r = ['b']
+区分 splice 和slice
+array.unshift(item...)-->是将元素item加到array的开始部分而不是尾部，它返回array的新的长度值
+var a = ['a','b','c'];
+var r = a.unshift('?','@');
+a是['?'.'@','a','b','c']
+r = 5;
+
+function.apply(thisArg,argArray)
+apply方法调用函数function,传递一个将被绑定到this上的对象和一个可选的参数数组
+apply 方法被用在apply 调用模式（apply invocation pattern）中
+function.method('bind',funtion(that){
+var method = this,
+slice = Array.prototype.slice,
+ args = slice.apply(arguments,[1]);
+return function ()｛
+　return method.apply(that,
+  args.concat(slice.apply(aruments,[0])))  
+);
+};
+});
+var x = function ()｛
+return this.value;
+｝.bind({value:666});
+alert(x());//666
+---------------
+Number
+number.toExponential(fractionDigits)
+
+document.writeln(Math.PI.toExponential(0));
+	3e+0;
+        3.14e+0;
+
+number.toFixed(fractionDigits)
+document.writeln(Math.PI.toFixed(0))
+3
+Math.PI.toFixed(2) = 3.14
+
+number.toPrecision(precision)
+Math.PI.toPrecision(2) = 3.1
+
+Math.PI.toPrecision(7) = 3.141593
+
+number.toString(radix)
+
+Math.PI.toString(2)radix --->基数
+Object.hasOwnProperty(name)
+var a = {numnber:true};
+var b = Object.beger(a);//b增加a的方法
+
+var t = a.hasOwnProperty('member');//true
+var = b.hasOwnProperty('member');// false
+var v =b.member; //true
+-------------------------------------------
+RegExp
+regexp.exec(String)
+（最强大、最慢的方法）
+如果他成功匹配regexp和字符串，它会返回一个数组
+数组中下标为0的元素将包含正则表达式regexp匹配的字符串
+regexp.test(string)
+最简单。最快的
+var b = /&.+/.test('frank &amp; beans'); b = true;
+
+string.chartAt(pos)
+
+var name = 'Curly';
+var initial = name.charAt(0) = 'C'
+
+string charCodeAt(pos)
+
+
+var name = 'Curly';
+var initial = name.charCodeAt = 67
+
+string.concat(string...)
+string.indexOf(serarchString,position);
+var text = 'Mississippi';
+var p = text.indexOf('ss');
+p = text.indexOf('ss',3) // p = 2
+
+string.lastIndexOf(searchString,positon) 
+var text = 'Mississippi';
+LastIndeOf是从该字符串的末尾开始查找而不是从开头
+var p = text.lastIndexOf('ss'); p = 5
+
+String.loaclCompare(that)
+
+var m = ['AAA','A','aa','a','Aa','aaa']
+m.sort(function (a,b) {
+ return a.localCompare(b);
+});
+['a','A','aa','Aa','aaa','AAA']
+
+string.match(regexp)
+string.replace(searchValue,replaceValue)
+string.search(regexp)
+类似于indexof方法
+如果找到匹配，他返回第一个匹配的首字符位置，否则返回-1
+
+string.slice(start,end)
+复制
+string.split(separator,limit)limit可以限制被分割的片段数量
+var digits = '0123456789'
+var a = digits.split('',5);
+a = ['0','1','2','3','456789'];
+string.substring(start,end)
+
+string.toLocaleLowerCase()
+string.toLocaleUpperCase()
+转换成小、大写格式'主要用在土耳其语中'
+
+string.toLowerCase()
+string.toUpperCase()
+string.fromCharCode(char...)
+var a = string.fromCharCode(67,97,116)//a = 'Cat'
+-------------------------------------------------------
+全局变量
+1)脱离任何函数安排的var
+var foo = value;
+2)
+window.foo = value;
+3)foo = value;隐式的全局变量
+A.2作用域
+A.3自动插入分号
+A.4保留字
+A.5 Unicode javascripet的字符是16位
+A.6
+typeof
+typeof 98.6 ---'number'
+tyoeof null --->'object'
+my_value === null
+A.7 parseInt
+parseInt("16") === parseInt("16 tons") === 16
+A.9 
+二进制是的浮点数不能正确地处理十进制的小数
+0.1+0.2 不等于 0.3
+-----------------------
+typeof NaN == 'number' //true;
+NaN === NaN //false
+NaN !== NaN //true;
+isNaN（NaN） //true;
+isNaN(0) //false
+isNaN('oops'）// true
+isNaN('0') // false
+A.11伪数组
+----
+undefined Undefined
+null      Object
+false     Boolean
+
+
+-----------------
+鸡肋
+B.1 == 
+'' == '0' //false
+0 == '' // true
+0 == '0' //true
+
+
+false == 'false' // false
+false == '0'//true
+
+
+false == undefined // false
+false == null //false
+null == undefined // true;
+
+'\t\r\n' == 0 //true;
+B.2 with 本意是想用来快捷的访问对象的属性
+...
+B.3 eval 
+   continue
+   switch
+B.9
+
+function foo() { }
+
+var foo = function foo() { };
+-
+B.10类型的包装对象
+new Boolean(false)
+  new 
+  void ---------->undefined
+--------------------------------
+JSON 有6种类型的值：对象、数组、字符串、数字、布尔值和特殊值null
+json 解析器。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
