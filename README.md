@@ -1,7 +1,7 @@
 
-我的技术博客
+##我的技术博客
 
-this is my first gitHub create Page
-
-
-Hello,how are you ? everything is ok?
+	学习制作自己的技术博客，分享和总结自己的知识，感谢开源社区，
+	
+	感谢愿意分享知识的人！
+	
